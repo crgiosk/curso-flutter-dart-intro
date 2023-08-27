@@ -7,6 +7,8 @@ void main() {
 
   print("sumaOptionalParameters ${sumaOptionalParameters(30)}");
 
+  print(greetPerson(name: "Sergio"));
+
 
 }
 
@@ -26,4 +28,9 @@ int sumaOptionalParameters(int num1, [int num2 = 10]) {
 
   return num1 + num2;
 
+}
+
+//nombrarr funciones con paramtros y hacerlos estrictos/opciones
+String greetPerson({required String name, String message = 'Hola,'}) {
+  return '$message $name';
 }
