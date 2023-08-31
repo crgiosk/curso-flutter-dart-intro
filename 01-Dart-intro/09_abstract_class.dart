@@ -2,10 +2,14 @@ void main() {
 
   final windPlante = WindPlant(initialEnergdy: 100);
 
+  final nuclear = NuclearPlant(energyLeft: 1000);
 
   print("windLeft = ${windPlante.energyLeft}");
   print("charging phone...");
   print("windLeft = ${chargePhone(windPlante)}");
+  print("charging phone...");
+  print("nuclear = ${nuclear.energyLeft}");
+  print("nuclear = ${chargePhone(nuclear)}");
 
 
 }
@@ -26,7 +30,7 @@ abstract class EnergyPlant {
 
   double energyLeft;
 
-  PlantType type;
+  final PlantType type;
 
   EnergyPlant({
     required this.energyLeft,
@@ -47,4 +51,25 @@ class WindPlant extends EnergyPlant {
     energyLeft -= amountEnergy;
 
   }
+}
+
+//implements me permite solo implemenar los metodos y los atributos
+class NuclearPlant implements EnergyPlant {
+
+  @override
+  double energyLeft;
+
+  @override
+  final PlantType type = PlantType.nuclear;
+
+  NuclearPlant({
+    required this.energyLeft
+  });
+
+  @override
+  void consumeEnergy( double amountEnergy) {
+    energyLeft = (amountEnergy * 0.5);
+  }
+
+
 }
