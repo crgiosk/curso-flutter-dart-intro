@@ -1,0 +1,33 @@
+void main () {
+  print("inicio del programa");
+
+  //feature es una promesa de que tendras un resultado en alguna funcion asyncrona
+  //pero se debe manjear una posible excepcion, ya que puede fallar
+
+  httpGet("'url.com'").then(
+    (it) {
+      print("response from backend is $it");
+    },
+    //en caso de que falle la peticion, se maneja por aca en .catchError
+  ).catchError( (it) {
+    print("Error en la peticion: $it");
+  }
+
+  );
+
+  print("Fin del programa");
+}
+
+//Future palabra reservada para decir que se va a retornar un valor asyncrono
+Future<String> httpGet(String url) {
+  return Future.delayed(
+    //valor que va a durar
+    const Duration(seconds: 3),
+    //lambda o callback para devolver el resultado
+    () {
+
+      throw "error en la peticion http";
+      //return "Respuesta de la peticion";
+    }
+  );
+}
