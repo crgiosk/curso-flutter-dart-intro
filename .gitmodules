@@ -1,0 +1,6 @@
+[submodule "yes_no_app"]
+	path = yes_no_app
+	url = https://github.com/crgiosk/curso-flutter-dart-intro.git
+[submodule "flutter_hello_world_app"]
+	path = flutter_hello_world_app
+	url = https://github.com/crgiosk/curso-flutter-dart-intro.git
